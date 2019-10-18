@@ -1,2 +1,21 @@
-#login command
+########################### LOGIN COMMAND ##################################
+
 ssh smwangi@ant-login.linux.crg.es
+
+########################### INVOKE cmscan USING SINGULARITY ################################
+singularity --help
+
+singularity pull docker://biocorecrg/genome_annotation:0.4
+
+singularity exec -e genome_annotation-0.4.simg cmbuild  -h
+
+########################### HPC QUEUING PARAMETERS #############################################
+#!/bin/bash
+#$ -cwd
+#$ -q biocore-el7
+#$ -pe smp 40
+#$ -j y
+#$ -l virtual_free=800G
+#$ -l h_rt=72:00:00
+
+singularity exec -e genome_annotation-0.4.simg cmscan --cpu 40 -o small.out --tblout table.out -E 0.01 --incE 0.001 /nfs/db/rfam/14.1/Rfam.cm Peame_canu01arrow01.contigs.fa
