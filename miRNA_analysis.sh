@@ -8,3 +8,5 @@ git clone https://github.com/s-andrews/FastQC.git
 
 ####################################### DOWNLOAD VITIS GENOME MIRDEEP DEPENDECIES ########################################
 wget http://www.genoscope.cns.fr/externe/Download/Projets/Projet_ML/data/12X/assembly/scaffolds/masked/scaffolds.msk.fa # genome file
+Bowtie
+RNAFold
